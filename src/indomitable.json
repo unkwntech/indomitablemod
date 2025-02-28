@@ -1,0 +1,20 @@
+{
+    "id": "indomitable",
+    "name": "Indomitable Joker",
+    "author": ["GrumpyKabob", "github.com/unkwntech"],
+    "description": "Adds a joke with a x0 multiplier, which grows by x0.15 each time you discard your most played card.",
+    "prefix": "indom",
+    "main_file": "indomitable.lua",
+    "priority": -20,
+    "badge_colour": "FF230A",
+    "badge_text_colour": "ABC123",
+    "display_name": "Indomitable",
+    "version": "0.1.0",
+    "dependencies": [
+        "Steamodded (>=1.*)",
+        "Lovely (>=0.6)",
+        "Balatro (>=1.0.1m)"
+    ],
+    "conflicts": [],
+    "dump_loc": false
+}
