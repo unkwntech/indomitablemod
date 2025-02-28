@@ -18,8 +18,12 @@ Starts with a x0.7 multiplier, resulting in a reduction in the multiplier of all
 
 ## Installation
 
-* Download
-* Extract
+* Install Steamodded (see above)
+* Download the [latest release](https://github.com/unkwntech/indomitablemod/releases)
+* Extract the contents of the `.zip` file to the mods folder.
+    * Windows: `%appdata%\balatro\mods`
+    * MacOS: `~/Library/Application`
+    * Linux (WINE/Proton): `~/.local/share/Steam/steamapps/compatdata/2379780/pfx/drive_c/users/steamuser/AppData/Roaming/Balatro`
 
 ## Todo
 
