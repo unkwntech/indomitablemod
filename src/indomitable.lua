@@ -108,20 +108,20 @@ for _, suit in ipairs(suits) do
                 key = "lc",
                 ranks = ranks,
                 display_ranks = {"Jack", "Queen", "King"},
-                atlas = atlas_lc,
+                atlas = atlas_lc.key,
                 pos_style = "deck",
                 suit_icon = {
-                    atlas = atlas_icon
+                    atlas = atlas_icon.key
                 }
             },
             {
                 key = "hc",
                 ranks = ranks,
                 display_ranks = {"Jack", "Queen", "King"},
-                atlas = atlas_hc,
+                atlas = atlas_hc.key,
                 pos_style = "deck",
                 suit_icon = {
-                    atlas = atlas_icon
+                    atlas = atlas_icon.key
                 }
             }
         },
