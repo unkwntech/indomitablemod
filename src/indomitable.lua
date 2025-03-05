@@ -1,7 +1,7 @@
 SMODS.Joker {
     key = 'indomitable',
-    rarity = 1, --common
-    cost = 1,
+    rarity = 2, --uncommon
+    cost = 6,
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
@@ -69,10 +69,10 @@ local atlas_key = "birb_deck_skin" -- Format: PREFIX_KEY
 local atlas_path = "birb_lc.png" -- Filename for the image in the asset folder
 local atlas_path_hc = "birb_hc.png" -- Filename for the high-contrast version of the texture, if existing
 
-local suits = {"hearts", "clubs", "diamonds", "spades"} -- Which suits to replace
+local suits = {"clubs","hearts",  "diamonds", "spades"} -- Which suits to replace
 local ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"} -- Which ranks to replace
 
-local description = "The Spiciest Birbs!" -- English-language description, also used as default
+local description = "The Birb!" -- English-language description, also used as default
 
 -----------------------------------------------------------
 -- You should only need to change things above this line --
@@ -108,35 +108,25 @@ for _, suit in ipairs(suits) do
                 key = "lc",
                 ranks = ranks,
                 display_ranks = {"Jack", "Queen", "King"},
-                atlas = atlas_lc.key,
+                atlas = atlas_lc.key.key,
                 pos_style = "deck",
                 suit_icon = {
-                    atlas = atlas_icon.key
+                    atlas = atlas_icon.key.key
                 }
             },
             {
                 key = "hc",
                 ranks = ranks,
                 display_ranks = {"Jack", "Queen", "King"},
-                atlas = atlas_hc.key,
+                atlas = atlas_hc.key.key,
                 pos_style = "deck",
                 suit_icon = {
-                    atlas = atlas_icon.key
+                    atlas = atlas_icon.key.key
                 }
             }
         },
-        -- ranks = ranks,
-        -- lc_atlas = atlas_key .. "_lc",
-        -- hc_atlas = atlas_path_hc and atlas_key .. "_hc",
         loc_txt = {
             ["en-us"] = description
         },
-        -- posStyle = "deck"
     }
 end
-
--- Notes:
-
--- The current version of Steamodded has a bug with prefixes in mods including `DeckSkin`s.
--- By manually including the prefix in the atlas' key, this should keep the mod functional
--- even after this bug is fixed.
