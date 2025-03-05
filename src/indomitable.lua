@@ -63,3 +63,80 @@ SMODS.current_mod.reset_game_globals = function(run_start)
         G.GAME.current_round.indomitable_increment = 0.15
     end
 end
+
+local atlas_key = "birb_deck_skin" -- Format: PREFIX_KEY
+-- See end of file for notes
+local atlas_path = "birb_lc.png" -- Filename for the image in the asset folder
+local atlas_path_hc = "birb_hc.png" -- Filename for the high-contrast version of the texture, if existing
+
+local suits = {"hearts", "clubs", "diamonds", "spades"} -- Which suits to replace
+local ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"} -- Which ranks to replace
+
+local description = "The Spiciest Birbs!" -- English-language description, also used as default
+
+-----------------------------------------------------------
+-- You should only need to change things above this line --
+-----------------------------------------------------------
+
+local atlas_lc = SMODS.Atlas {  
+    key = atlas_key .. "_lc",
+    px = 71,
+    py = 95,
+    path = atlas_path,
+}
+
+local atlas_hc = SMODS.Atlas {  
+    key = atlas_key .. "_hc",
+    px = 71,
+    py = 95,
+    path = atlas_path_hc,
+}
+
+local atlas_icon = SMODS.Atlas {
+    key = atlas_key .. "_icon",
+    path = "icon.png",
+    px = 18,
+    py = 18
+}
+
+for _, suit in ipairs(suits) do
+    SMODS.DeckSkin{
+        key = suit .. "_skin",
+        suit = suit:gsub("^%l", string.upper),
+        palettes = {
+            {
+                key = "lc",
+                ranks = ranks,
+                display_ranks = {"Jack", "Queen", "King"},
+                atlas = atlas_lc,
+                pos_style = "deck",
+                suit_icon = {
+                    atlas = atlas_icon
+                }
+            },
+            {
+                key = "hc",
+                ranks = ranks,
+                display_ranks = {"Jack", "Queen", "King"},
+                atlas = atlas_hc,
+                pos_style = "deck",
+                suit_icon = {
+                    atlas = atlas_icon
+                }
+            }
+        },
+        -- ranks = ranks,
+        -- lc_atlas = atlas_key .. "_lc",
+        -- hc_atlas = atlas_path_hc and atlas_key .. "_hc",
+        loc_txt = {
+            ["en-us"] = description
+        },
+        -- posStyle = "deck"
+    }
+end
+
+-- Notes:
+
+-- The current version of Steamodded has a bug with prefixes in mods including `DeckSkin`s.
+-- By manually including the prefix in the atlas' key, this should keep the mod functional
+-- even after this bug is fixed.
